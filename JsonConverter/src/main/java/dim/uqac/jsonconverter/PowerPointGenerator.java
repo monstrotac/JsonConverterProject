@@ -7,17 +7,16 @@ import java.awt.*;
 public class PowerPointGenerator {
 
     //We start by inializing our variables.
-    public XMLSlideShow slideShow;
-    public XSLFSlideMaster defaultMaster;
-    public XSLFSlideLayout layout;
-
+    private XMLSlideShow slideShow;
+    private XSLFSlideMaster defaultMaster;
+    private XSLFSlideLayout layout;
     //Here we construct our powerpoints.
     public void initializeSlideShow(){
-        slideShow = new XMLSlideShow();
-        slideShow.createSlide();
-        defaultMaster = slideShow.getSlideMasters().get(0);
-        layout = defaultMaster.getLayout(SlideLayout.TITLE_AND_CONTENT);
-        XSLFSlide slide = slideShow.createSlide(layout);
+        setSlideShow(new XMLSlideShow());
+        getSlideShow().createSlide();
+        setDefaultMaster(getSlideShow().getSlideMasters().get(0));
+        setLayout(getDefaultMaster().getLayout(SlideLayout.TITLE_AND_CONTENT));
+        XSLFSlide slide = getSlideShow().createSlide(getLayout());
 
         XSLFTextShape titleShape = slide.getPlaceholder(0);
         XSLFTextShape contentShape = slide.getPlaceholder(1);
@@ -28,5 +27,29 @@ public class PowerPointGenerator {
         r.setText("Baeldung");
         r.setFontColor(Color.green);
         r.setFontSize(24.);
+    }
+
+    public XMLSlideShow getSlideShow() {
+        return slideShow;
+    }
+
+    public void setSlideShow(XMLSlideShow slideShow) {
+        this.slideShow = slideShow;
+    }
+
+    public XSLFSlideMaster getDefaultMaster() {
+        return defaultMaster;
+    }
+
+    public void setDefaultMaster(XSLFSlideMaster defaultMaster) {
+        this.defaultMaster = defaultMaster;
+    }
+
+    public XSLFSlideLayout getLayout() {
+        return layout;
+    }
+
+    public void setLayout(XSLFSlideLayout layout) {
+        this.layout = layout;
     }
 }

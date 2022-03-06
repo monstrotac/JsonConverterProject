@@ -1,13 +1,14 @@
 package dim.uqac.jsonconverter;
 
-import org.apache.poi.xslf.usermodel.SlideLayout;
-import org.apache.poi.xslf.usermodel.XMLSlideShow;
-import org.apache.poi.xslf.usermodel.XSLFSlideLayout;
-import org.apache.poi.xslf.usermodel.XSLFSlideMaster;
+import java.io.IOException;
 
 public class Main {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
 
+        PowerPointGenerator pointGenerator = new PowerPointGenerator();
+        pointGenerator.initializeSlideShow();
+        PowerPointWriter pointWriter = new PowerPointWriter();
+        pointWriter.SavePowerPoint(pointGenerator.getSlideShow(), "BingChilling");
 
     }
 }
