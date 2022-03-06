@@ -4,13 +4,13 @@
     "slides": [
       {
         "layout": "TITLE_AND_CONTENT",
-        "title": "",
-        "content": ""
+        "title": "My First Page",
+        "content": "This is real data"
       },
       {
         "layout": "TITLE_AND_CONTENT",
-        "title": "",
-        "content": ""
+        "title": "My Second Page",
+        "content": "Oh no!!!"
       }
     ]
   }
