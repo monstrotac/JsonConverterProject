@@ -13,27 +13,27 @@ public class Slide {
     }
 
     //Getter for title
-    public String GetTitle(){
+    public String getTitle(){
         return title;
     }
     //Setter for title
-    public void SetTitle(String arg){
+    public void setTitle(String arg){
         title = arg;
     }
     //Getter for layout
-    public String GetLayout(){
+    public String getLayout(){
         return layout;
     }
     //Setter for layout
-    public void SetLayout(String arg){
+    public void setLayout(String arg){
         layout = arg;
     }
     //Getter for content
-    public String GetContent(){
+    public String getContent(){
         return content;
     }
     //Setter for content
-    public void SetContent(String arg){
+    public void setContent(String arg){
         content = arg;
     }
 }

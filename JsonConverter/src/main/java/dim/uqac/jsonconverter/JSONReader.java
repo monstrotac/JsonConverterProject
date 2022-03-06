@@ -18,7 +18,7 @@ public class JSONReader{
     }
 
     //Read a JSON file and return an array
-    private JSONObject GetJSONDataFromFile(String fileName){
+    private JSONObject getJSONDataFromFile(String fileName){
         //Set the json parser
         JSONParser jsonParser = new JSONParser();
         //Set the return data
@@ -39,27 +39,27 @@ public class JSONReader{
         return data;
     }
 
-    public Presentation GeneratePresentation(String fileName){
-        JSONObject data = GetJSONDataFromFile(fileName);
+    public Presentation generatePresentation(String fileName){
+        JSONObject data = getJSONDataFromFile(fileName);
 
         Presentation presentation = new Presentation((String)((JSONObject)data.get("presentation")).get("filename"));
 
-        List<Slide> slides = GetSlidesFromJSON((JSONArray) ((JSONObject)data.get("presentation")).get("slides"));
+        List<Slide> slides = getSlidesFromJSON((JSONArray) ((JSONObject)data.get("presentation")).get("slides"));
 
         presentation.slides = slides;
 
         return presentation;
     }
 
-    private List<Slide> GetSlidesFromJSON(JSONArray data){
+    private List<Slide> getSlidesFromJSON(JSONArray data){
         List<Slide> returnData = new LinkedList<Slide>();
 
-        data.forEach(slide -> AddData(returnData,(JSONObject)slide));
+        data.forEach(slide -> addData(returnData,(JSONObject)slide));
 
         return returnData;
     }
 
-    private void AddData(List<Slide> data,JSONObject slide){
+    private void addData(List<Slide> data,JSONObject slide){
         data.add(new Slide((String)slide.get("title"),(String)slide.get("layout"),(String)slide.get("content")));
     }
 
