@@ -12,14 +12,17 @@ public class PowerPointGenerator {
     private XSLFSlideLayout layout;
     //Here we construct our powerpoints.
     public void initializeSlideShow(){
-        setSlideShow(new XMLSlideShow());
-        getSlideShow().createSlide();
-        setDefaultMaster(getSlideShow().getSlideMasters().get(0));
-        setLayout(getDefaultMaster().getLayout(SlideLayout.TITLE_AND_CONTENT));
-        XSLFSlide slide = getSlideShow().createSlide(getLayout());
+        slideShow = new XMLSlideShow();
+        defaultMaster = slideShow.getSlideMasters().get(0);
+
+        setLayout(defaultMaster.getLayout(SlideLayout.TITLE_AND_CONTENT));
+        XSLFSlide slide = slideShow.createSlide(layout);
 
         XSLFTextShape titleShape = slide.getPlaceholder(0);
         XSLFTextShape contentShape = slide.getPlaceholder(1);
+
+        titleShape.setText("OOOOOOGA");
+        contentShape.setText("Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque eu iaculis nisl. Integer consequat purus sem, eget tristique velit maximus et. Praesent sit amet elit magna. Integer sed vulputate est. Donec sit amet enim est. Aliquam non rhoncus sem. Aenean fringilla metus dui, sed tincidunt lectus elementum nec. Nam tempus enim ut elementum fermentum.");
 
         XSLFTextBox shape = slide.createTextBox();
         XSLFTextParagraph p = shape.addNewTextParagraph();
@@ -27,6 +30,14 @@ public class PowerPointGenerator {
         r.setText("Baeldung");
         r.setFontColor(Color.green);
         r.setFontSize(24.);
+    }
+
+    public void parseDataToSlides(){
+
+    }
+
+    public void createTitleAndContent(){
+
     }
 
     public XMLSlideShow getSlideShow() {
