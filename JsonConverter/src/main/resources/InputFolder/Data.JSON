@@ -1,13 +1,16 @@
 {
   "presentation": {
+    "filename": "test",
     "slides": [
       {
         "layout": "TITLE_AND_CONTENT",
         "title": "",
-        "data": ""
+        "content": ""
       },
       {
-        "title": ""
+        "layout": "TITLE_AND_CONTENT",
+        "title": "",
+        "content": ""
       }
     ]
   }
