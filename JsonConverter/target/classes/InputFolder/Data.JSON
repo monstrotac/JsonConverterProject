@@ -1,13 +1,16 @@
 {
   "presentation": {
+    "filename": "test",
     "slides": [
       {
         "layout": "TITLE_AND_CONTENT",
-        "title": "",
-        "data": ""
+        "title": "My First Page",
+        "content": "This is real data"
       },
       {
-        "title": ""
+        "layout": "TITLE_AND_CONTENT",
+        "title": "My Second Page",
+        "content": "Oh no!!!"
       }
     ]
   }

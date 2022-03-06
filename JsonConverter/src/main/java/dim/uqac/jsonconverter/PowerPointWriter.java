@@ -11,8 +11,8 @@ public class PowerPointWriter {
     private final String FILE_OUT_PATH = "src\\main\\resources\\OutputFolder\\";
     private final String FILE_TYPE = ".pptx";
 
-    public void SavePowerPoint(XMLSlideShow slideShow, String fileName) throws IOException {
-        String fullFile = FILE_OUT_PATH+fileName+FILE_TYPE;
+    public void SavePowerPoint(XMLSlideShow slideShow, Presentation presentation) throws IOException {
+        String fullFile = FILE_OUT_PATH+presentation.getFilename()+FILE_TYPE;
         FileOutputStream out = new FileOutputStream(fullFile);
         slideShow.write(out);
         out.close();

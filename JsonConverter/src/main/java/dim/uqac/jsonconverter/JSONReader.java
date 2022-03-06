@@ -13,6 +13,9 @@ import org.json.simple.parser.ParseException;
 
 public class JSONReader{
 
+    private final String FILE_IN_PATH = "src\\main\\resources\\InputFolder\\";
+    private final String FILE_TYPE = ".json";
+
     public JSONReader (){
 
     }
@@ -40,7 +43,7 @@ public class JSONReader{
     }
 
     public Presentation generatePresentation(String fileName){
-        JSONObject data = getJSONDataFromFile(fileName);
+        JSONObject data = getJSONDataFromFile(FILE_IN_PATH+fileName+FILE_TYPE);
 
         Presentation presentation = new Presentation((String)((JSONObject)data.get("presentation")).get("filename"));
 
