@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/JsonConverter.iml" filepath="$PROJECT_DIR$/.idea/JsonConverter.iml" />
+      <module fileurl="file://$PROJECT_DIR$/JsonConverter/JsonConverter.iml" filepath="$PROJECT_DIR$/JsonConverter/JsonConverter.iml" />
     </modules>
   </component>
 </project>
