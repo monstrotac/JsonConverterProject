@@ -1,7 +1,7 @@
 package dim.uqac.jsonconverter;
 
 import java.io.IOException;
-
+//GITHUB: https://github.com/monstrotac/JsonConverterProject
 public class Main {
     public static void main(String[] args) throws IOException {
         //Here we initialize the JSON array and send the data in a new presentation.
