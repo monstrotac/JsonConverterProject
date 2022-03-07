@@ -10,7 +10,6 @@ public class Presentation {
     public List<Slide> slides;
 
     public Presentation(String _filename){
-
         setFilename(_filename);
         slides = new LinkedList<Slide>();
     }
