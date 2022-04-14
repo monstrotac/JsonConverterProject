@@ -32,6 +32,19 @@ public class PowerPointGenerator {
                 //Iterate to find out what content the program has to inject in the slide to then inject it in the slide.
                 for (Content item: slideObject.getContent()) {
                     switch (item.getIdentity()){
+                        case "TITLE" -> {
+                            //Create the content's shape.
+                            XSLFTextShape contentShape = newSlide.getPlaceholder(currentPlaceHolder);
+                            //Here we clear the default title.
+                            contentShape.clearText();
+                            //We create a paragraph to insert the text and a new textrun.
+                            XSLFTextRun r = contentShape.addNewTextParagraph().addNewTextRun();
+                            //We Assign the data, color, size and font family to the textrun.
+                            r.setText(((Title)item).getData());
+                            r.setFontColor(((Title) item).getColor());
+                            r.setFontSize(((Title)item).getSize());
+                            r.setFontFamily(((Title)item).getFont());
+                        }
                         case "TEXT" -> {
                             //Create the content's shape.
                             XSLFTextShape contentShape = newSlide.getPlaceholder(currentPlaceHolder);
@@ -44,10 +57,12 @@ public class PowerPointGenerator {
                             r.setFontColor(((Text) item).getColor());
                             r.setFontSize(((Text)item).getSize());
                             r.setFontFamily(((Text)item).getFont());
+                        }
+                        case "PARAGRAPH" -> {
 
                         }
-                        case "IMAGE" -> {}
                         case "TABLE" -> {}
+                        case "IMAGE" -> {}
                         case "GRAPH" -> {}
                     }
                     //Increment the current placeholder by one once the loop is complete, this way we know where we situate ourselves if we have to iterate again.

@@ -6,9 +6,9 @@
         "layout": "TITLE_AND_CONTENT",
         "content": [
           {
-            "text": {
+            "title": {
               "data":"This is a title",
-              "color": "Black",
+              "color": "black",
               "font": "Calibri",
               "size": 24.0
             }
@@ -16,7 +16,7 @@
           {
             "text": {
               "data":"test",
-              "color": "Red",
+              "color": "red",
               "font": "Calibri",
               "size": 12.0
             }
@@ -27,11 +27,10 @@
         "layout": "TITLE_AND_CONTENT",
         "content": [
           {
-            "text": {
+            "title": {
               "data":"Yes",
-              "color": "Blue",
-              "font": "Calibri",
-              "size": 15.0
+              "color": "blue",
+              "font": "Calibri"
             }
           },
           {
