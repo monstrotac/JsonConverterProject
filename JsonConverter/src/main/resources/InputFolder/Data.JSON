@@ -11,6 +11,11 @@
         "layout": "TITLE_AND_CONTENT",
         "title": "My Second Page",
         "content": "Oh no!!!"
+      },
+      {
+        "layout": "TITLE_AND_CONTENT",
+        "title": "My third page",
+        "content": "ABCDE"
       }
     ]
   }
