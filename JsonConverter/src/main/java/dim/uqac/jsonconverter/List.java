@@ -11,4 +11,12 @@ public class List implements Content{
     public String getIdentity() {
         return "LIST";
     }
+
+    public java.util.List<Content> getData() {
+        return data;
+    }
+
+    public void setData(java.util.List<Content> data) {
+        this.data = data;
+    }
 }
