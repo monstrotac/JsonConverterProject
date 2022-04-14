@@ -6,7 +6,7 @@ public class Text implements Content {
     private String font;
     private double size;
 
-    public Text(String data,String color,String font,double size){
+    public Text(String data, String color, String font, double size){
         this.data = data;
         this.color = color;
         this.font = font;
