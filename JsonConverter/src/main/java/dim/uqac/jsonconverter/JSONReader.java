@@ -93,6 +93,16 @@ public class JSONReader{
 
     private void getContent(List<Content> data,JSONObject content){
         //Sets the content to the right type depending on the JSON object
+        if(content.get("title") != null){
+            JSONObject temp = (JSONObject)content.get("title");
+            if(temp.get("size") != null){
+                data.add(new Title((String)temp.get("data"),getColor((String)temp.get("color")),(String)temp.get("font"), (double)temp.get("size")));
+            }
+            else{
+                data.add(new Title((String)temp.get("data"),getColor((String)temp.get("color")),(String)temp.get("font")));
+            }
+
+        }
         if(content.get("text") != null){
             JSONObject temp = (JSONObject)content.get("text");
             data.add(new Text((String)temp.get("data"),getColor((String)temp.get("color")),(String)temp.get("font"), (double)temp.get("size")));
