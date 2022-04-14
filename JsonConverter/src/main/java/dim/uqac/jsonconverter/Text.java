@@ -4,9 +4,9 @@ public class Text implements Content {
     private String data;
     private String color;
     private String font;
-    private int size;
+    private double size;
 
-    public Text(String data,String color,String font,int size){
+    public Text(String data,String color,String font,double size){
         this.data = data;
         this.color = color;
         this.font = font;
@@ -38,11 +38,11 @@ public class Text implements Content {
         this.font = font;
     }
 
-    public int getSize() {
+    public double getSize() {
         return size;
     }
 
-    public void setSize(int size) {
+    public void setSize(double size) {
         this.size = size;
     }
 }
