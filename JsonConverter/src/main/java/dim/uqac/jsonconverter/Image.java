@@ -55,4 +55,9 @@ public class Image implements Content{
     public void setY(double y) {
         this.y = y;
     }
+
+    @Override
+    public String getIdentity() {
+        return "IMAGE";
+    }
 }

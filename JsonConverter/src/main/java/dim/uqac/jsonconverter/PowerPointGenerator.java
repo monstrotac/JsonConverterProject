@@ -1,8 +1,10 @@
 package dim.uqac.jsonconverter;
 
+import org.apache.poi.sl.usermodel.Placeholder;
 import org.apache.poi.xslf.usermodel.*;
 
 import java.awt.*;
+import java.io.Console;
 
 public class PowerPointGenerator {
     //We start by inializing our variables.
@@ -22,27 +24,27 @@ public class PowerPointGenerator {
 
     //Create and add new slides into the slideShow with the help of the slideObject data.
     public void addNewSlide(Slide slideObject){
-
         int currentPlaceHolder = 0; // This field is used in order to know exactly where we situate ourselves in the content loop.
         XSLFSlideLayout layout = defaultMaster.getLayout(slideObject.getLayout());// We query the system to discover which layout the slide is going to have.
         XSLFSlide newSlide = slideShow.createSlide(layout); // Create a new slide with the previously created layout here.
-
         switch (slideObject.getLayout()) {
             case TITLE_AND_CONTENT -> {
                 //Iterate to find out what content the program has to inject in the slide to then inject it in the slide.
-                for (Content item: slideObject.getContent()
-                     ) {
-                    switch (item.toString()){
+                for (Content item: slideObject.getContent()) {
+                    switch (item.getIdentity()){
                         case "TEXT" -> {
                             //Create the content's shape.
-                            XSLFTextBox contentShape = (XSLFTextBox) newSlide.getPlaceholder(currentPlaceHolder);
-                            XSLFTextParagraph p = contentShape.addNewTextParagraph();
-                            XSLFTextRun r = p.addNewTextRun();
-                            //Assign the data, color, size and font family to the shape.
+                            XSLFTextShape contentShape = newSlide.getPlaceholder(currentPlaceHolder);
+                            //Here we clear the default text.
+                            contentShape.clearText();
+                            //We create a paragraph and a new textrun to then insert our text.
+                            XSLFTextRun r = contentShape.addNewTextParagraph().addNewTextRun();
+                            //We Assign the data, color, size and font family to the textrun.
                             r.setText(((Text)item).getData());
-                            r.setFontColor(Color.getColor(((Text)item).getColor()));
+                            r.setFontColor(Color.getColor(((Text) item).getColor()));
                             r.setFontSize(((Text)item).getSize());
                             r.setFontFamily(((Text)item).getFont());
+
                         }
                         case "IMAGE" -> {}
                         case "TABLE" -> {}

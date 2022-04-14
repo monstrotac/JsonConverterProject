@@ -45,4 +45,9 @@ public class Text implements Content {
     public void setSize(double size) {
         this.size = size;
     }
+
+    @Override
+    public String getIdentity() {
+        return "TEXT";
+    }
 }
