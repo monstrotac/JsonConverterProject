@@ -47,9 +47,9 @@
           },
           {
             "image": {
-              "imageUrl":"",
-              "height": 10.5,
-              "width": 10.0,
+              "imageUrl":"https://www.google.com/url?sa=i&url=https%3A%2F%2Ftoppng.com%2Ffree-image%2Fthis-media-may-contain-sensitive-material-rage-troll-face-transparent-PNG-free-PNG-Images_217618&psig=AOvVaw0mzc0Oyb1plZQ-pwhsRzTz&ust=1650066006514000&source=images&cd=vfe&ved=0CAwQjRxqFwoTCNjXjaHdlPcCFQAAAAAdAAAAABAD",
+              "height": 50.0,
+              "width": 50.0,
               "x": 10.0,
               "y": 10.0
             }
@@ -100,7 +100,6 @@
                     "size": 16.0
                   }
                 }
-
               ]
             }
           }
