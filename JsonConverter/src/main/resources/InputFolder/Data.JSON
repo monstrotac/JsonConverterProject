@@ -20,14 +20,6 @@
               "font": "Calibri",
               "size": 12.0
             }
-          },
-          {
-            "text": {
-              "data":"Second",
-              "color": "green",
-              "font": "Calibri",
-              "size": 12.0
-            }
           }
         ]
       },
