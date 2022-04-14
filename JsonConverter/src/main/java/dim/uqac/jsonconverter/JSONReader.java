@@ -94,7 +94,7 @@ public class JSONReader{
         //Sets the content to the right type depending on the JSON object
         if(content.get("text") != null){
             JSONObject temp = (JSONObject)content.get("text");
-            data.add(new Text((String)temp.get("data"),(String)temp.get("color"),(String)temp.get("font"),Double.parseDouble((String) temp.get("size"))));
+            data.add(new Text((String)temp.get("data"),(String)temp.get("color"),(String)temp.get("font"), (double)temp.get("size")));
         }
         if(content.get("image") != null){
             JSONObject temp = (JSONObject)content.get("image");
