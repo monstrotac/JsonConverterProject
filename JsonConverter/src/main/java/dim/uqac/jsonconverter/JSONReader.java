@@ -3,9 +3,11 @@ package dim.uqac.jsonconverter;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 
+import org.apache.poi.xslf.usermodel.SlideLayout;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
@@ -80,7 +82,38 @@ public class JSONReader{
     //This function adds slides to the List of slides in returnData (for the presentation)
     private void addData(List<Slide> data,JSONObject slide){
         //Add to the data that was sent by reference
-        data.add(new Slide((String)slide.get("title"),(String)slide.get("layout"),(String)slide.get("content")));
+        List<Content> contents = new ArrayList<Content>();
+
+        ((JSONArray)slide.get("content")).forEach(content -> getContent(contents,(JSONObject)content));
+
+        data.add(new Slide((String)slide.get("title"),getLayout((String)slide.get("layout")),contents));
+    }
+
+    private void getContent(List<Content> data,JSONObject content){
+        if(content.toString() == "text"){
+            data.add(new Text((String)content.get("data"),(String)content.get("color"),(String)content.get("font"),(int)content.get("size")));
+        }
+        if(content.toString() == "image"){
+            data.add(new Image((String)content.get("imageUrl"),(float)content.get("height"),(float)content.get("width"),(float)content.get("x"),(float)content.get("y")));
+        }
+    }
+
+    private SlideLayout getLayout(String layout){
+        if(layout == "TITLE"){
+            return SlideLayout.TITLE;
+        }
+        else if(layout == "TEXT_AND_CHART"){
+            return SlideLayout.TEXT_AND_CHART;
+        }
+        else if(layout == "CHART_AND_TEXT"){
+            return SlideLayout.CHART_AND_TEXT;
+        }
+        else if(layout == "TITLE_AND_CONTENT"){
+            return SlideLayout.TITLE_AND_CONTENT;
+        }
+        else{
+            return SlideLayout.BLANK;
+        }
     }
 
 }

@@ -5,17 +5,39 @@
       {
         "layout": "TITLE_AND_CONTENT",
         "title": "My First Page",
-        "content": "This is real data"
+        "content": [
+          {
+            "text": {
+              "data":"test",
+              "color": "Red",
+              "font": "",
+              "size": "24"
+            }
+          }
+        ]
       },
       {
         "layout": "TITLE_AND_CONTENT",
         "title": "My Second Page",
-        "content": "Oh no!!!"
-      },
-      {
-        "layout": "TITLE_AND_CONTENT",
-        "title": "My third page",
-        "content": "ABCDE"
+        "content": [
+          {
+            "text": {
+              "data":"Yes",
+              "color": "Blue",
+              "font": "",
+              "size": "15"
+            }
+          },
+          {
+            "image": {
+              "imageUrl":"",
+              "height": 10.5,
+              "width": 10,
+              "x": 10,
+              "y": 10
+            }
+          }
+        ]
       }
     ]
   }
