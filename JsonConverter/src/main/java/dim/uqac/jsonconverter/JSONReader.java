@@ -1,5 +1,6 @@
 package dim.uqac.jsonconverter;
 
+import java.awt.*;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
@@ -94,7 +95,7 @@ public class JSONReader{
         //Sets the content to the right type depending on the JSON object
         if(content.get("text") != null){
             JSONObject temp = (JSONObject)content.get("text");
-            data.add(new Text((String)temp.get("data"),(String)temp.get("color"),(String)temp.get("font"), (double)temp.get("size")));
+            data.add(new Text((String)temp.get("data"),getColor((String)temp.get("color")),(String)temp.get("font"), (double)temp.get("size")));
         }
         if(content.get("image") != null){
             JSONObject temp = (JSONObject)content.get("image");
@@ -103,6 +104,25 @@ public class JSONReader{
                     (double)temp.get("width"),
                     (double)temp.get("x"),
                     (double)temp.get("y")));
+        }
+    }
+
+    private Color getColor(String color){
+        switch (color){
+            case "white" ->{return Color.white;}
+            case "lightGray" -> {return Color.lightGray;}
+            case "gray" -> {return Color.gray;}
+            case "darkGray" -> {return Color.darkGray;}
+            case "black" -> {return Color.black;}
+            case "red" -> {return Color.red;}
+            case "pink" -> {return Color.pink;}
+            case "orange" -> {return Color.orange;}
+            case "yellow" -> {return Color.yellow;}
+            case "green" -> {return Color.green;}
+            case "magenta" -> {return Color.magenta;}
+            case "cyan" -> {return Color.cyan;}
+            case "blue" -> {return Color.blue;}
+            default -> {return Color.black;}
         }
     }
 

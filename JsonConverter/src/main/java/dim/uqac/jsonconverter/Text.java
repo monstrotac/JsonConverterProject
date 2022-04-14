@@ -1,12 +1,14 @@
 package dim.uqac.jsonconverter;
 
+import java.awt.*;
+
 public class Text implements Content {
     private String data;
-    private String color;
+    private Color color;
     private String font;
     private double size;
 
-    public Text(String data, String color, String font, double size){
+    public Text(String data, Color color, String font, double size){
         this.data = data;
         this.color = color;
         this.font = font;
@@ -22,11 +24,11 @@ public class Text implements Content {
         this.data = data;
     }
 
-    public String getColor() {
+    public Color getColor() {
         return color;
     }
 
-    public void setColor(String color) {
+    public void setColor(Color color) {
         this.color = color;
     }
 
