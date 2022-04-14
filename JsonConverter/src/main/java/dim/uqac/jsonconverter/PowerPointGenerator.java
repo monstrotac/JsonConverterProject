@@ -1,6 +1,5 @@
 package dim.uqac.jsonconverter;
 
-import org.apache.poi.sl.usermodel.Placeholder;
 import org.apache.poi.xslf.usermodel.*;
 
 import java.awt.*;
@@ -91,7 +90,7 @@ public class PowerPointGenerator {
                         }
                         case "TABLE" -> {
                             //Create the content's shape.
-
+                            XSLFTable table = newSlide.createTable();
                         }
                         case "IMAGE" -> {}
                         case "GRAPH" -> {}
