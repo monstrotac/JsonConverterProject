@@ -6,6 +6,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Objects;
 
 import org.apache.poi.xslf.usermodel.SlideLayout;
 import org.json.simple.JSONArray;
@@ -91,26 +92,26 @@ public class JSONReader{
 
     private void getContent(List<Content> data,JSONObject content){
         //Sets the content to the right type depending on the JSON object
-        if(content.toString() == "text"){
-            data.add(new Text((String)content.get("data"),(String)content.get("color"),(String)content.get("font"),(int)content.get("size")));
+        if(content.get("text") != null){
+            data.add(new Text((String)content.get("data"),(String)content.get("color"),(String)content.get("font"),(double)content.get("size")));
         }
-        if(content.toString() == "image"){
+        if(Objects.equals(content.toString(), "image")){
             data.add(new Image((String)content.get("imageUrl"),(float)content.get("height"),(float)content.get("width"),(float)content.get("x"),(float)content.get("y")));
         }
     }
 
     private SlideLayout getLayout(String layout){
         //Gets the layout type and returns it
-        if(layout == "TITLE"){
+        if(Objects.equals(layout, "TITLE")){
             return SlideLayout.TITLE;
         }
-        else if(layout == "TEXT_AND_CHART"){
+        else if(Objects.equals(layout, "TEXT_AND_CHART")){
             return SlideLayout.TEXT_AND_CHART;
         }
-        else if(layout == "CHART_AND_TEXT"){
+        else if(Objects.equals(layout, "CHART_AND_TEXT")){
             return SlideLayout.CHART_AND_TEXT;
         }
-        else if(layout == "TITLE_AND_CONTENT"){
+        else if(Objects.equals(layout, "TITLE_AND_CONTENT")){
             return SlideLayout.TITLE_AND_CONTENT;
         }
         else{
