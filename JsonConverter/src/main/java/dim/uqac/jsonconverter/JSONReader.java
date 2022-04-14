@@ -86,10 +86,11 @@ public class JSONReader{
 
         ((JSONArray)slide.get("content")).forEach(content -> getContent(contents,(JSONObject)content));
 
-        data.add(new Slide((String)slide.get("title"),getLayout((String)slide.get("layout")),contents));
+        data.add(new Slide(getLayout((String)slide.get("layout")),contents));
     }
 
     private void getContent(List<Content> data,JSONObject content){
+        //Sets the content to the right type depending on the JSON object
         if(content.toString() == "text"){
             data.add(new Text((String)content.get("data"),(String)content.get("color"),(String)content.get("font"),(int)content.get("size")));
         }
@@ -99,6 +100,7 @@ public class JSONReader{
     }
 
     private SlideLayout getLayout(String layout){
+        //Gets the layout type and returns it
         if(layout == "TITLE"){
             return SlideLayout.TITLE;
         }

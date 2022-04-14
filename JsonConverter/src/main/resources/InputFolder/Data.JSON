@@ -4,21 +4,27 @@
     "slides": [
       {
         "layout": "TITLE_AND_CONTENT",
-        "title": "My First Page",
         "content": [
+          {
+            "text": {
+              "data":"This is a title",
+              "color": "Black",
+              "font": "",
+              "size": "24"
+            }
+          },
           {
             "text": {
               "data":"test",
               "color": "Red",
               "font": "",
-              "size": "24"
+              "size": "12"
             }
           }
         ]
       },
       {
         "layout": "TITLE_AND_CONTENT",
-        "title": "My Second Page",
         "content": [
           {
             "text": {
