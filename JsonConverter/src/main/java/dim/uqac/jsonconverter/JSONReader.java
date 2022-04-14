@@ -121,7 +121,7 @@ public class JSONReader{
             JSONObject temp = (JSONObject)content.get("list");
             List<Content> texts = new ArrayList<Content>();
             ((JSONArray)temp.get("content")).forEach(listObject -> getContent(texts,(JSONObject) listObject));
-
+            //oui
             data.add(new ContentList(texts));
             System.out.println("");
         }
