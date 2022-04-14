@@ -15,6 +15,8 @@ import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
 
+import javax.swing.*;
+
 public class JSONReader{
 
     //Set the default path for the JSON files
@@ -115,6 +117,14 @@ public class JSONReader{
                     (double)temp.get("width"),
                     (double)temp.get("x"),
                     (double)temp.get("y")));
+        }
+
+        if(content.get("list") != null){
+            JSONObject temp = (JSONObject)content.get("list");
+            List<Content> texts = new ArrayList<Content>();
+            ((JSONArray)temp.get("content")).forEach(listObject -> getContent(texts,temp));
+
+            data.add(new dim.uqac.jsonconverter.List(texts));
         }
     }
 

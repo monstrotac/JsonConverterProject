@@ -55,6 +55,56 @@
             }
           }
         ]
+      },
+      {
+        "layout": "TITLE_AND_CONTENT",
+        "content": [
+          {
+            "title": {
+              "data":"This is a List",
+              "color": "black",
+              "font": "Calibri",
+              "size": 24.0,
+              "decorations": {
+                "bold": true,
+                "italic": true,
+                "underlined": false,
+                "strikethrough": false
+              }
+            }
+          },
+          {
+            "List": {
+              "content":[
+                {
+                  "text": {
+                    "data":"R",
+                    "color": "red",
+                    "font": "Calibri",
+                    "size": 16.0
+                  }
+                },
+                {
+                  "text": {
+                    "data":"G",
+                    "color": "green",
+                    "font": "Calibri",
+                    "size": 16.0
+                  }
+                },
+                {
+                  "text": {
+                    "data":"B",
+                    "color": "blue",
+                    "font": "Calibri",
+                    "size": 16.0
+                  }
+                }
+
+              ]
+            }
+          }
+        ]
       }
     ]
   }
