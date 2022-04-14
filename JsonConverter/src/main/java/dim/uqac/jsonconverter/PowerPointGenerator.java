@@ -41,7 +41,7 @@ public class PowerPointGenerator {
                             XSLFTextRun r = contentShape.addNewTextParagraph().addNewTextRun();
                             //We Assign the data, color, size and font family to the textrun.
                             r.setText(((Text)item).getData());
-                            r.setFontColor(Color.getColor(((Text) item).getColor()));
+                            r.setFontColor(((Text) item).getColor());
                             r.setFontSize(((Text)item).getSize());
                             r.setFontFamily(((Text)item).getFont());
 
