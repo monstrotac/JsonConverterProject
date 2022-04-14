@@ -93,10 +93,12 @@ public class JSONReader{
     private void getContent(List<Content> data,JSONObject content){
         //Sets the content to the right type depending on the JSON object
         if(content.get("text") != null){
-            data.add(new Text((String)content.get("data"),(String)content.get("color"),(String)content.get("font"),(double)content.get("size")));
+            JSONObject temp = (JSONObject)content.get("text");
+            data.add(new Text((String)temp.get("data"),(String)temp.get("color"),(String)temp.get("font"),(double)temp.get("size")));
         }
-        if(Objects.equals(content.toString(), "image")){
-            data.add(new Image((String)content.get("imageUrl"),(float)content.get("height"),(float)content.get("width"),(float)content.get("x"),(float)content.get("y")));
+        if(content.get("image") != null){
+            JSONObject temp = (JSONObject)content.get("image");
+            data.add(new Image((String)temp.get("imageUrl"),(double)temp.get("height"),(double)temp.get("width"),(double)temp.get("x"),(double)temp.get("y")));
         }
     }
 
