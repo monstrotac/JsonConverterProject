@@ -10,15 +10,27 @@
               "data":"This is a title",
               "color": "black",
               "font": "Calibri",
-              "size": 24.0
+              "size": 24.0,
+              "decorations": {
+                "bold": true,
+                "italic": true,
+                "underlined": false,
+                "strikethrough": false
+              }
             }
           },
           {
             "text": {
-              "data":"test",
+              "data":"test adihwaudhwahid Decorations \n Yes sir",
               "color": "red",
               "font": "Calibri",
-              "size": 12.0
+              "size": 12.0,
+              "decorations": {
+                "bold": false,
+                "italic": false,
+                "underlined": true,
+                "strikethrough": true
+              }
             }
           }
         ]

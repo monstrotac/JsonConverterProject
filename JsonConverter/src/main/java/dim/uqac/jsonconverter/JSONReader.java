@@ -101,11 +101,12 @@ public class JSONReader{
             else{
                 data.add(new Title((String)temp.get("data"),getColor((String)temp.get("color")),(String)temp.get("font")));
             }
-
+            checkDecorationTitle(temp,(Title)data.get(data.size() - 1));
         }
         if(content.get("text") != null){
             JSONObject temp = (JSONObject)content.get("text");
             data.add(new Text((String)temp.get("data"),getColor((String)temp.get("color")),(String)temp.get("font"), (double)temp.get("size")));
+            checkDecorationText(temp,(Text)data.get(data.size() - 1));
         }
         if(content.get("image") != null){
             JSONObject temp = (JSONObject)content.get("image");
@@ -114,6 +115,30 @@ public class JSONReader{
                     (double)temp.get("width"),
                     (double)temp.get("x"),
                     (double)temp.get("y")));
+        }
+    }
+
+    private void checkDecorationTitle(JSONObject temp,Title data){
+        if(temp.get("decorations") != null){
+            JSONObject deco = (JSONObject)temp.get("decorations");
+
+            if((boolean) deco.get("bold")){data.setBold(true);}
+            if((boolean) deco.get("italic")){data.setItalic(true);}
+            if((boolean) deco.get("underlined")){data.setUnderlined(true);}
+            if((boolean) deco.get("strikethrough")){data.setStrikethrough(true);}
+
+        }
+    }
+
+    private void checkDecorationText(JSONObject temp,Text data){
+        if(temp.get("decorations") != null){
+            JSONObject deco = (JSONObject)temp.get("decorations");
+
+            if((boolean) deco.get("bold")){data.setBold(true);}
+            if((boolean) deco.get("italic")){data.setItalic(true);}
+            if((boolean) deco.get("underlined")){data.setUnderlined(true);}
+            if((boolean) deco.get("strikethrough")){data.setStrikethrough(true);}
+
         }
     }
 
