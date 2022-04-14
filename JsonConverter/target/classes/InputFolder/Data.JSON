@@ -10,15 +10,27 @@
               "data":"This is a title",
               "color": "black",
               "font": "Calibri",
-              "size": 24.0
+              "size": 24.0,
+              "decorations": {
+                "bold": true,
+                "italic": true,
+                "underlined": false,
+                "strikethrough": false
+              }
             }
           },
           {
             "text": {
-              "data":"test",
+              "data":"test adihwaudhwahid Decorations \n Yes sir",
               "color": "red",
               "font": "Calibri",
-              "size": 12.0
+              "size": 12.0,
+              "decorations": {
+                "bold": false,
+                "italic": false,
+                "underlined": true,
+                "strikethrough": true
+              }
             }
           }
         ]
@@ -40,6 +52,56 @@
               "width": 10.0,
               "x": 10.0,
               "y": 10.0
+            }
+          }
+        ]
+      },
+      {
+        "layout": "TITLE_AND_CONTENT",
+        "content": [
+          {
+            "title": {
+              "data":"This is a List",
+              "color": "black",
+              "font": "Calibri",
+              "size": 24.0,
+              "decorations": {
+                "bold": true,
+                "italic": true,
+                "underlined": false,
+                "strikethrough": false
+              }
+            }
+          },
+          {
+            "list": {
+              "content":[
+                {
+                  "text": {
+                    "data":"R",
+                    "color": "red",
+                    "font": "Calibri",
+                    "size": 16.0
+                  }
+                },
+                {
+                  "text": {
+                    "data":"G",
+                    "color": "green",
+                    "font": "Calibri",
+                    "size": 16.0
+                  }
+                },
+                {
+                  "text": {
+                    "data":"B",
+                    "color": "blue",
+                    "font": "Calibri",
+                    "size": 16.0
+                  }
+                }
+
+              ]
             }
           }
         ]
