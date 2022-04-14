@@ -44,6 +44,11 @@ public class PowerPointGenerator {
                             r.setFontColor(((Title) item).getColor());
                             r.setFontSize(((Title)item).getSize());
                             r.setFontFamily(((Title)item).getFont());
+                            //From here we apply text decorations.
+                            r.setBold(((Title) item).isBold());
+                            r.setItalic(((Title) item).isItalic());
+                            r.setStrikethrough(((Title) item).isStrikethrough());
+                            r.setUnderlined(((Title) item).isUnderlined());
                         }
                         case "TEXT" -> {
                             //Create the content's shape.
@@ -57,11 +62,37 @@ public class PowerPointGenerator {
                             r.setFontColor(((Text) item).getColor());
                             r.setFontSize(((Text)item).getSize());
                             r.setFontFamily(((Text)item).getFont());
+                            //From here we apply text decorations.
+                            r.setBold(((Text) item).isBold());
+                            r.setItalic(((Text) item).isItalic());
+                            r.setStrikethrough(((Text) item).isStrikethrough());
+                            r.setUnderlined(((Text) item).isUnderlined());
                         }
-                        case "PARAGRAPH" -> {
+                        case "LIST" -> {
+                            //Create the content's shape.
+                            XSLFTextShape contentShape = newSlide.getPlaceholder(currentPlaceHolder);
+                            //Here we clear the default text.
+                            contentShape.clearText();
+                            //Here we iterate through our list, doing a similar process as before for a Text object until we no longer have to.
+                            for (Content content: ((ContentList) item).getData()) {
+                                //We create a paragraph and a new textrun to then insert our text.
+                                XSLFTextRun r = contentShape.addNewTextParagraph().addNewTextRun();
+                                //We Assign the data, color, size and font family to the textrun.
+                                r.setText(((Text)content).getData());
+                                r.setFontColor(((Text)content).getColor());
+                                r.setFontSize(((Text)content).getSize());
+                                r.setFontFamily(((Text)content).getFont());
+                                //From here we apply text decorations.
+                                r.setBold(((Text)content).isBold());
+                                r.setItalic(((Text)content).isItalic());
+                                r.setStrikethrough(((Text)content).isStrikethrough());
+                                r.setUnderlined(((Text)content).isUnderlined());
+                            }
+                        }
+                        case "TABLE" -> {
+                            //Create the content's shape.
 
                         }
-                        case "TABLE" -> {}
                         case "IMAGE" -> {}
                         case "GRAPH" -> {}
                     }
@@ -70,10 +101,22 @@ public class PowerPointGenerator {
                 }
             }
             case TITLE_ONLY -> {
-                //We create the title element and assign text to it.
-                XSLFTextBox contentShape = (XSLFTextBox) newSlide.getPlaceholder(currentPlaceHolder);
-                //Assign the data, color, size and font to the shape.
-                contentShape.setText(((Text)(slideObject.getContent().get(0))).getData());
+                //Create the content's shape.
+                XSLFTextShape contentShape = newSlide.getPlaceholder(currentPlaceHolder);
+                //Here we clear the default title.
+                contentShape.clearText();
+                //We create a paragraph to insert the text and a new textrun.
+                XSLFTextRun r = contentShape.addNewTextParagraph().addNewTextRun();
+                //We Assign the data, color, size and font family to the textrun.
+                r.setText(((Title)slideObject.getContent().get(0)).getData());
+                r.setFontColor(((Title)slideObject.getContent().get(0)).getColor());
+                r.setFontSize(((Title)slideObject.getContent().get(0)).getSize());
+                r.setFontFamily(((Title)slideObject.getContent().get(0)).getFont());
+                //From here we apply text decorations.
+                r.setBold(((Title)slideObject.getContent().get(0)).isBold());
+                r.setItalic(((Title)slideObject.getContent().get(0)).isItalic());
+                r.setStrikethrough(((Title)slideObject.getContent().get(0)).isStrikethrough());
+                r.setUnderlined(((Title)slideObject.getContent().get(0)).isUnderlined());
             }
         }
         //Create the content's shapes.`
