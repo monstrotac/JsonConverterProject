@@ -8,7 +8,7 @@
           {
             "text": {
               "data":"This is a title",
-              "color": "Black",
+              "color": "black",
               "font": "Calibri",
               "size": 24.0
             }
@@ -16,7 +16,15 @@
           {
             "text": {
               "data":"test",
-              "color": "Red",
+              "color": "red",
+              "font": "Calibri",
+              "size": 12.0
+            }
+          },
+          {
+            "text": {
+              "data":"Second",
+              "color": "green",
               "font": "Calibri",
               "size": 12.0
             }
@@ -29,7 +37,7 @@
           {
             "text": {
               "data":"Yes",
-              "color": "Blue",
+              "color": "blue",
               "font": "Calibri",
               "size": 15.0
             }
