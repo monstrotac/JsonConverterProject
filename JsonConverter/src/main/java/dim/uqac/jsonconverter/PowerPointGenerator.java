@@ -26,6 +26,7 @@ public class PowerPointGenerator {
         int currentPlaceHolder = 0; // This field is used in order to know exactly where we situate ourselves in the content loop.
         XSLFSlideLayout layout = defaultMaster.getLayout(slideObject.getLayout());// We query the system to discover which layout the slide is going to have.
         XSLFSlide newSlide = slideShow.createSlide(layout); // Create a new slide with the previously created layout here.
+
         switch (slideObject.getLayout()) {
             case TITLE_AND_CONTENT -> {
                 //Iterate to find out what content the program has to inject in the slide to then inject it in the slide.
@@ -88,12 +89,7 @@ public class PowerPointGenerator {
                                 r.setUnderlined(((Text)content).isUnderlined());
                             }
                         }
-                        case "TABLE" -> {
-                            //Create the content's shape.
-                            XSLFTable table = newSlide.createTable();
-                        }
-                        case "IMAGE" -> {}
-                        case "GRAPH" -> {}
+                        default -> throw new IllegalStateException("Illegal content type for slide type 'TITLE_AND_CONTENT'. Content type received : " + item.getIdentity());
                     }
                     //Increment the current placeholder by one once the loop is complete, this way we know where we situate ourselves if we have to iterate again.
                     currentPlaceHolder++;
@@ -117,9 +113,8 @@ public class PowerPointGenerator {
                 r.setStrikethrough(((Title)slideObject.getContent().get(0)).isStrikethrough());
                 r.setUnderlined(((Title)slideObject.getContent().get(0)).isUnderlined());
             }
+            default -> throw new IllegalStateException("Illegal slide type provided");
         }
-        //Create the content's shapes.`
-
     }
 
     //Getters and Setters
