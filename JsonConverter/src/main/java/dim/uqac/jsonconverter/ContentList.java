@@ -1,9 +1,9 @@
 package dim.uqac.jsonconverter;
 
-public class List implements Content{
+public class ContentList implements Content{
     private java.util.List<Content> data;
 
-    public List(java.util.List<Content> data){
+    public ContentList(java.util.List<Content> data){
         this.data = data;
     }
 
