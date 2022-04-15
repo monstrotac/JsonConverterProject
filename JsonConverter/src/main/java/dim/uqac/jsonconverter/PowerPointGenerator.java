@@ -151,6 +151,8 @@ public class PowerPointGenerator {
                 }
             }
             case TITLE_ONLY -> {
+                if(((Title)slideObject.getContent().get(0)).getIdentity() != "TITLE")
+                    throw new IllegalStateException("A 'TITLE_ONLY' SLIDE CAN ONLY ACCEPT A TITLE ELEMENT");
                 //Create the content's shape.
                 XSLFTextShape contentShape = newSlide.getPlaceholder(currentPlaceHolder);
                 //Here we clear the default title.
