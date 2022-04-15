@@ -1,9 +1,16 @@
 package dim.uqac.jsonconverter;
 
+import org.apache.poi.sl.usermodel.PictureData;
+import org.apache.poi.sl.usermodel.Placeholder;
+import org.apache.poi.util.IOUtils;
 import org.apache.poi.xslf.usermodel.*;
+import org.apache.xmlbeans.impl.common.IOUtil;
 
 import java.awt.*;
 import java.io.Console;
+import java.io.IOException;
+import java.net.URL;
+import java.util.Locale;
 
 public class PowerPointGenerator {
     //We start by inializing our variables.
@@ -87,6 +94,46 @@ public class PowerPointGenerator {
                                 r.setItalic(((Text)content).isItalic());
                                 r.setStrikethrough(((Text)content).isStrikethrough());
                                 r.setUnderlined(((Text)content).isUnderlined());
+                            }
+                        }
+                        case "IMAGE" -> {
+                            //Create the content's shape.
+                            XSLFTextShape contentShape = newSlide.getPlaceholder(currentPlaceHolder);
+                            //Here we clear the default text.
+                            contentShape.clearText();
+                            //We add the image but before that we make sure that it even exists to be begin with.
+                            try {
+                                Image img = ((Image)item);
+                                //We open the picture from the URL
+                                byte[] pictureData = IOUtils.toByteArray(new URL(img.getImageUrl()).openStream());
+
+                                if(img.getImageUrl().contains(".")) {
+                                    String fileExtension = img.getImageUrl().substring(img.getImageUrl().lastIndexOf(".")).toLowerCase(Locale.ROOT);
+                                    PictureData.PictureType fileTypeInEnumeration;
+                                    //We acquire which extension type the file is using to then use it in the slide.
+                                    switch (fileExtension) {
+                                        case "jpg", "jpeg" -> {
+                                            fileTypeInEnumeration = PictureData.PictureType.JPEG;
+                                        }
+                                        case "png" -> {
+                                            fileTypeInEnumeration = PictureData.PictureType.PNG;
+                                        }
+                                        case "gif" -> {
+                                            fileTypeInEnumeration = PictureData.PictureType.GIF;
+                                        }
+                                        case "bmp" -> {
+                                            fileTypeInEnumeration = PictureData.PictureType.BMP;
+                                        }
+                                        default -> throw new IllegalStateException("Unimplemented file type: " + fileExtension);
+                                    }
+                                    //We add picture to our slideShow and then add it to our current slide.
+                                    XSLFPictureData picture = slideShow.addPicture(pictureData, fileTypeInEnumeration);
+                                    XSLFPictureShape pictureShape = newSlide.createPicture(picture);
+                                    //We change the position of the picture on the slide.
+                                    pictureShape.setAnchor(new Rectangle((int) img.getWidth(), (int) img.getHeight(), (int) img.getX(), (int) img.getY()));
+                                } else throw new IllegalStateException("The URL provided is not a recognized image.");
+                            } catch (IOException e) {
+                                e.printStackTrace();
                             }
                         }
                         default -> throw new IllegalStateException("Illegal content type for slide type 'TITLE_AND_CONTENT'. Content type received : " + item.getIdentity());
