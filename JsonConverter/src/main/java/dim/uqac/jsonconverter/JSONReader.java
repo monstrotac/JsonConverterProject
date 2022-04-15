@@ -111,10 +111,10 @@ public class JSONReader{
         if(content.get("image") != null){
             JSONObject temp = (JSONObject)content.get("image");
             data.add(new Image((String)temp.get("imageUrl"),
-                    (double)temp.get("height"),
-                    (double)temp.get("width"),
-                    (double)temp.get("x"),
-                    (double)temp.get("y")));
+                    (int)temp.get("height"),
+                    (int)temp.get("width"),
+                    (int)temp.get("x"),
+                    (int)temp.get("y")));
         }
 
         if(content.get("list") != null){

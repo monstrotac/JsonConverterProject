@@ -2,13 +2,13 @@ package dim.uqac.jsonconverter;
 
 public class Image implements Content{
     private String imageUrl;
-    private double height;
-    private double width;
-    private double x;
-    private double y;
+    private int height;
+    private int width;
+    private int x;
+    private int y;
 
 
-    public Image(String imageUrl,double height,double width,double x,double y){
+    public Image(String imageUrl,int height,int width,int x,int y){
         this.imageUrl = imageUrl;
         this.height = height;
         this.width = width;
@@ -24,35 +24,35 @@ public class Image implements Content{
         this.imageUrl = imageUrl;
     }
 
-    public double getHeight() {
+    public int getHeight() {
         return height;
     }
 
-    public void setHeight(double height) {
+    public void setHeight(int height) {
         this.height = height;
     }
 
-    public double getWidth() {
+    public int getWidth() {
         return width;
     }
 
-    public void setWidth(double width) {
+    public void setWidth(int width) {
         this.width = width;
     }
 
-    public double getX() {
+    public int getX() {
         return x;
     }
 
-    public void setX(double x) {
+    public void setX(int x) {
         this.x = x;
     }
 
-    public double getY() {
+    public int getY() {
         return y;
     }
 
-    public void setY(double y) {
+    public void setY(int y) {
         this.y = y;
     }
 
