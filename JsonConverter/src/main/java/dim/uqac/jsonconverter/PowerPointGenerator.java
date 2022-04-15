@@ -82,6 +82,8 @@ public class PowerPointGenerator {
                             contentShape.clearText();
                             //Here we iterate through our list, doing a similar process as before for a Text object until we no longer have to.
                             for (Content content: ((ContentList) item).getData()) {
+                                if (content.getIdentity() != "TEXT")
+                                    throw new IllegalStateException("Only TEXT content is allowed in a list");
                                 //We create a paragraph and a new textrun to then insert our text.
                                 XSLFTextRun r = contentShape.addNewTextParagraph().addNewTextRun();
                                 //We Assign the data, color, size and font family to the textrun.
