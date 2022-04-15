@@ -48,10 +48,10 @@
           {
             "image": {
               "imageUrl":"https://cdn.slidemodel.com/wp-content/uploads/13071-01-folded-powerpoint-templates-1-640x360.jpg",
-              "height": 250,
-              "width": 250,
-              "x": 10,
-              "y": 10
+              "height": "250",
+              "width": "250",
+              "x": "10",
+              "y": "10"
             }
           }
         ]
