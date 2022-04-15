@@ -13,6 +13,7 @@ import java.io.Console;
 import java.io.IOException;
 import java.net.URL;
 import java.util.Locale;
+import java.util.Objects;
 
 public class PowerPointGenerator {
     //We start by inializing our variables.
@@ -84,7 +85,7 @@ public class PowerPointGenerator {
                             contentShape.clearText();
                             //Here we iterate through our list, doing a similar process as before for a Text object until we no longer have to.
                             for (Content content: ((ContentList) item).getData()) {
-                                if (content.getIdentity() != "TEXT")
+                                if (!Objects.equals(content.getIdentity(), "TEXT"))
                                     throw new IllegalStateException("Only TEXT content is allowed in a list");
                                 //We create a paragraph and a new textrun to then insert our text.
                                 XSLFTextRun r = contentShape.addNewTextParagraph().addNewTextRun();
@@ -140,7 +141,6 @@ public class PowerPointGenerator {
                                     XSLFPictureData picture = slideShow.addPicture(pictureData, fileTypeInEnumeration);
                                     XSLFPictureShape pictureShape = newSlide.createPicture(picture);
                                     //We change the position of the picture on the slide.
-
                                     pictureShape.setAnchor(newSlide.getPlaceholder(1).getAnchor());
 
                                 } else throw new IllegalStateException("The URL provided is not a recognized image.");
@@ -153,7 +153,7 @@ public class PowerPointGenerator {
                 }
             }
             case TITLE_ONLY -> {
-                if(slideObject.getContent().get(0).getIdentity() != "TITLE")
+                if(!Objects.equals(slideObject.getContent().get(0).getIdentity(), "TITLE"))
                     throw new IllegalStateException("A 'TITLE_ONLY' SLIDE CAN ONLY ACCEPT A TITLE ELEMENT");
                 //Create the content's shape.
                 XSLFTextShape contentShape = newSlide.getPlaceholder(currentPlaceHolder);
