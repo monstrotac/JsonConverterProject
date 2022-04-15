@@ -101,27 +101,30 @@ public class PowerPointGenerator {
                             XSLFTextShape contentShape = newSlide.getPlaceholder(currentPlaceHolder);
                             //Here we clear the default text.
                             contentShape.clearText();
+                            Image img = ((Image)item);
+                            byte[] pictureData = new byte[0];
                             //We add the image but before that we make sure that it even exists to be begin with.
                             try {
-                                Image img = ((Image)item);
                                 //We open the picture from the URL
-                                byte[] pictureData = IOUtils.toByteArray(new URL(img.getImageUrl()).openStream());
-
+                                pictureData = IOUtils.toByteArray(new URL(img.getImageUrl()).openStream());
+                            } catch (IOException e) {
+                                e.printStackTrace();
+                            }
                                 if(img.getImageUrl().contains(".")) {
                                     String fileExtension = img.getImageUrl().substring(img.getImageUrl().lastIndexOf(".")).toLowerCase(Locale.ROOT);
                                     PictureData.PictureType fileTypeInEnumeration;
                                     //We acquire which extension type the file is using to then use it in the slide.
                                     switch (fileExtension) {
-                                        case "jpg", "jpeg" -> {
+                                        case ".jpg", ".jpeg" -> {
                                             fileTypeInEnumeration = PictureData.PictureType.JPEG;
                                         }
-                                        case "png" -> {
+                                        case ".png" -> {
                                             fileTypeInEnumeration = PictureData.PictureType.PNG;
                                         }
-                                        case "gif" -> {
+                                        case ".gif" -> {
                                             fileTypeInEnumeration = PictureData.PictureType.GIF;
                                         }
-                                        case "bmp" -> {
+                                        case ".bmp" -> {
                                             fileTypeInEnumeration = PictureData.PictureType.BMP;
                                         }
                                         default -> throw new IllegalStateException("Unimplemented file type: " + fileExtension);
@@ -132,9 +135,7 @@ public class PowerPointGenerator {
                                     //We change the position of the picture on the slide.
                                     pictureShape.setAnchor(new Rectangle((int) img.getWidth(), (int) img.getHeight(), (int) img.getX(), (int) img.getY()));
                                 } else throw new IllegalStateException("The URL provided is not a recognized image.");
-                            } catch (IOException e) {
-                                e.printStackTrace();
-                            }
+
                         }
                         default -> throw new IllegalStateException("Illegal content type for slide type 'TITLE_AND_CONTENT'. Content type received : " + item.getIdentity());
                     }
