@@ -3,6 +3,18 @@
     "filename": "test",
     "slides": [
       {
+        "layout": "TITLE_ONLY",
+        "content": [
+          {
+            "title": {
+              "data":"HELLO, THIS IS MY PRENSENTATION",
+              "color": "orange",
+              "font": "Algerian"
+            }
+          }
+        ]
+      },
+      {
         "layout": "TITLE_AND_CONTENT",
         "content": [
           {

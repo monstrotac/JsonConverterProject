@@ -172,8 +172,8 @@ public class JSONReader{
 
     private SlideLayout getLayout(String layout){
         //Gets the layout type and returns it
-        if(Objects.equals(layout, "TITLE")){
-            return SlideLayout.TITLE;
+        if(Objects.equals(layout, "TITLE_ONLY")){
+            return SlideLayout.TITLE_ONLY;
         }
         else if(Objects.equals(layout, "TEXT_AND_CHART")){
             return SlideLayout.TEXT_AND_CHART;
