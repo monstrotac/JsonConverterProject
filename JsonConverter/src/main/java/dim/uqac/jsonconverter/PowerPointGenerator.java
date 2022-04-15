@@ -138,7 +138,6 @@ public class PowerPointGenerator {
                                     //We change the position of the picture on the slide.
 
                                     pictureShape.setAnchor(newSlide.getPlaceholder(1).getAnchor());
-                                    System.out.println("Shit");
 
                                 } else throw new IllegalStateException("The URL provided is not a recognized image.");
 
