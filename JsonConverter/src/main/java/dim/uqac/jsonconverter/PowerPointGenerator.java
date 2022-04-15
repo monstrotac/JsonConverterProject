@@ -2,6 +2,8 @@ package dim.uqac.jsonconverter;
 
 import org.apache.poi.sl.usermodel.PictureData;
 import org.apache.poi.sl.usermodel.Placeholder;
+import org.apache.poi.sl.usermodel.VerticalAlignment;
+import org.apache.poi.ss.usermodel.ClientAnchor;
 import org.apache.poi.util.IOUtils;
 import org.apache.poi.xslf.usermodel.*;
 import org.apache.xmlbeans.impl.common.IOUtil;
@@ -151,7 +153,7 @@ public class PowerPointGenerator {
                 }
             }
             case TITLE_ONLY -> {
-                if(((Title)slideObject.getContent().get(0)).getIdentity() != "TITLE")
+                if(slideObject.getContent().get(0).getIdentity() != "TITLE")
                     throw new IllegalStateException("A 'TITLE_ONLY' SLIDE CAN ONLY ACCEPT A TITLE ELEMENT");
                 //Create the content's shape.
                 XSLFTextShape contentShape = newSlide.getPlaceholder(currentPlaceHolder);
