@@ -136,7 +136,10 @@ public class PowerPointGenerator {
                                     XSLFPictureData picture = slideShow.addPicture(pictureData, fileTypeInEnumeration);
                                     XSLFPictureShape pictureShape = newSlide.createPicture(picture);
                                     //We change the position of the picture on the slide.
-                                    pictureShape.setAnchor(new Rectangle(img.getWidth(), img.getHeight(), img.getX(), img.getY()));
+
+                                    pictureShape.setAnchor(newSlide.getPlaceholder(1).getAnchor());
+                                    System.out.println("Shit");
+
                                 } else throw new IllegalStateException("The URL provided is not a recognized image.");
 
                         }
