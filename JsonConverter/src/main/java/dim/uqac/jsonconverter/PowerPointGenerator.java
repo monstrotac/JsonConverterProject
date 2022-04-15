@@ -101,6 +101,9 @@ public class PowerPointGenerator {
                             XSLFTextShape contentShape = newSlide.getPlaceholder(currentPlaceHolder);
                             //Here we clear the default text.
                             contentShape.clearText();
+                            XSLFTextRun r = contentShape.addNewTextParagraph().addNewTextRun();
+                            r.setText("");
+
                             Image img = ((Image)item);
                             byte[] pictureData = new byte[0];
                             //We add the image but before that we make sure that it even exists to be begin with.
