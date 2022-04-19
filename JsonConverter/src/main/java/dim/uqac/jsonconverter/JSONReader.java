@@ -15,17 +15,29 @@ import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
 
+/**
+ * Object with most of the JSON functionality, creates the presentation Objects
+ * @author Noah
+ * @version 1.0
+ */
 public class JSONReader{
 
     //Set the default path for the JSON files
     private final String FILE_IN_PATH = "src\\main\\resources\\InputFolder\\";
     private final String FILE_TYPE = ".json";
 
+    /**
+     * Blank Constructor to use the generatePresentation function
+     */
     public JSONReader (){
 
     }
 
-    //Read a JSON file and return an array
+    /**
+     * This function gets is the File Reader of the JSONReader, Only used to read the JSON file
+     * @param fileName
+     * @return A JSON object created by reading the file sent in the parameters
+     */
     private JSONObject getJSONDataFromFile(String fileName){
         //Set the json parser
         JSONParser jsonParser = new JSONParser();
@@ -53,7 +65,11 @@ public class JSONReader{
         return data;
     }
 
-    //This is the class that we call to Generate the Presentation with JSONReader.generatePresentation("...")
+    /**
+     * This is the function called to create a Presentation out of the JSONReader Object
+     * @param fileName
+     * @return A presentation used by the powerpoint Generator
+     */
     public Presentation generatePresentation(String fileName){
         //Creates the JSONObject from the file
         JSONObject data = getJSONDataFromFile(FILE_IN_PATH+fileName+FILE_TYPE);
@@ -70,7 +86,11 @@ public class JSONReader{
         return presentation;
     }
 
-    //This function reads the JSONArray and makes slides
+    /**
+     * This function reads the JSONArray and makes slides
+     * @param data
+     * @return slides from the array
+     */
     private List<Slide> getSlidesFromJSON(JSONArray data){
         //Creates an empty temporary List
         List<Slide> returnData = new LinkedList<Slide>();
@@ -81,7 +101,11 @@ public class JSONReader{
         return returnData;
     }
 
-    //This function adds slides to the List of slides in returnData (for the presentation)
+    /**
+     * This function adds slides to the List of slides in returnData (for the presentation)
+     * @param data
+     * @param slide
+     */
     private void addData(List<Slide> data,JSONObject slide){
         //Add to the data that was sent by reference
         List<Content> contents = new ArrayList<Content>();
@@ -91,8 +115,14 @@ public class JSONReader{
         data.add(new Slide(getLayout((String)slide.get("layout")),contents));
     }
 
+    /**
+     * Sets the content to the right type depending on the JSON object
+     * @param data
+     * @param content
+     */
     private void getContent(List<Content> data,JSONObject content){
-        //Sets the content to the right type depending on the JSON object
+
+        //Title
         if(content.get("title") != null){
             JSONObject temp = (JSONObject)content.get("title");
             if(temp.get("size") != null){
@@ -103,11 +133,13 @@ public class JSONReader{
             }
             checkDecorationTitle(temp,(Title)data.get(data.size() - 1));
         }
+        //Text
         if(content.get("text") != null){
             JSONObject temp = (JSONObject)content.get("text");
             data.add(new Text((String)temp.get("data"),getColor((String)temp.get("color")),(String)temp.get("font"), (double)temp.get("size")));
             checkDecorationText(temp,(Text)data.get(data.size() - 1));
         }
+        //Image
         if(content.get("image") != null){
             JSONObject temp = (JSONObject)content.get("image");
             data.add(new Image((String)temp.get("imageUrl"),
@@ -116,17 +148,21 @@ public class JSONReader{
                     Integer.parseInt((String)temp.get("x")),
                     Integer.parseInt((String)temp.get("y"))));
         }
-
+        //List
         if(content.get("list") != null){
             JSONObject temp = (JSONObject)content.get("list");
             List<Content> texts = new ArrayList<Content>();
             ((JSONArray)temp.get("content")).forEach(listObject -> getContent(texts,(JSONObject) listObject));
-            //oui
             data.add(new ContentList(texts));
             System.out.println("");
         }
     }
 
+    /**
+     * Checks the Decoration of the text for a Title
+     * @param temp
+     * @param data
+     */
     private void checkDecorationTitle(JSONObject temp,Title data){
         if(temp.get("decorations") != null){
             JSONObject deco = (JSONObject)temp.get("decorations");
@@ -139,6 +175,11 @@ public class JSONReader{
         }
     }
 
+    /**
+     * Checks the Decoration of the text for a Text
+     * @param temp
+     * @param data
+     */
     private void checkDecorationText(JSONObject temp,Text data){
         if(temp.get("decorations") != null){
             JSONObject deco = (JSONObject)temp.get("decorations");
@@ -151,6 +192,11 @@ public class JSONReader{
         }
     }
 
+    /**
+     * Transfers the color from a string to an Object
+     * @param color
+     * @return The color in a Color.(...)
+     */
     private Color getColor(String color){
         switch (color){
             case "white" ->{return Color.white;}
@@ -170,8 +216,13 @@ public class JSONReader{
         }
     }
 
+    /**
+     * Gets the layout type and returns it as a SlideLayout
+     * @param layout
+     * @return a SlideLayout
+     */
     private SlideLayout getLayout(String layout){
-        //Gets the layout type and returns it
+        //
         if(Objects.equals(layout, "TITLE_ONLY")){
             return SlideLayout.TITLE_ONLY;
         }
