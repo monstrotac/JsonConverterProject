@@ -175,12 +175,6 @@ public class JSONReader{
         if(Objects.equals(layout, "TITLE_ONLY")){
             return SlideLayout.TITLE_ONLY;
         }
-        else if(Objects.equals(layout, "TEXT_AND_CHART")){
-            return SlideLayout.TEXT_AND_CHART;
-        }
-        else if(Objects.equals(layout, "CHART_AND_TEXT")){
-            return SlideLayout.CHART_AND_TEXT;
-        }
         else if(Objects.equals(layout, "TITLE_AND_CONTENT")){
             return SlideLayout.TITLE_AND_CONTENT;
         }

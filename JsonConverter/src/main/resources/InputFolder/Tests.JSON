@@ -1,0 +1,276 @@
+{
+  "presentation": {
+    "filename": "test",
+    "slides": [
+      {
+        "layout": "TITLE_ONLY",
+        "content": [
+          {
+            "title": {
+              "data":"HELLO, THIS IS MY PRENSENTATION",
+              "color": "white",
+              "font": "Algerian"
+            }
+          }
+        ]
+      },
+      {
+        "layout": "TITLE_AND_CONTENT",
+        "content": [
+          {
+            "title": {
+              "data":"This is a title",
+              "color": "lightGray",
+              "font": "Calibri",
+              "size": 24.0,
+              "decorations": {
+                "bold": true,
+                "italic": true,
+                "underlined": true,
+                "strikethrough": true
+              }
+            }
+          },
+          {
+            "text": {
+              "data":"test adihwaudhwahid Decorations",
+              "color": "gray",
+              "font": "Calibri",
+              "size": 12.0,
+              "decorations": {
+                "bold": false,
+                "italic": true,
+                "underlined": true,
+                "strikethrough": true
+              }
+            }
+          },
+          {
+            "text": {
+              "data":"test adihwaudhwahid Decorations",
+              "color": "darkGray",
+              "font": "Calibri",
+              "size": 12.0,
+              "decorations": {
+                "bold": true,
+                "italic": false,
+                "underlined": true,
+                "strikethrough": true
+              }
+            }
+          },
+          {
+            "text": {
+              "data":"test adihwaudhwahid Decorations",
+              "color": "black",
+              "font": "Calibri",
+              "size": 12.0,
+              "decorations": {
+                "bold": true,
+                "italic": true,
+                "underlined": false,
+                "strikethrough": true
+              }
+            }
+          },
+          {
+            "text": {
+              "data":"test adihwaudhwahid Decorations",
+              "color": "red",
+              "font": "Calibri",
+              "size": 12.0,
+              "decorations": {
+                "bold": true,
+                "italic": true,
+                "underlined": true,
+                "strikethrough": false
+              }
+            }
+          },
+          {
+            "text": {
+              "data":"test adihwaudhwahid Decorations",
+              "color": "pink",
+              "font": "Calibri",
+              "size": 12.0,
+              "decorations": {
+                "bold": false,
+                "italic": false,
+                "underlined": false,
+                "strikethrough": false
+              }
+            }
+          },
+          {
+            "text": {
+              "data":"test adihwaudhwahid Decorations",
+              "color": "orange",
+              "font": "Calibri",
+              "size": 12.0,
+              "decorations": {
+                "bold": false,
+                "italic": false,
+                "underlined": false,
+                "strikethrough": true
+              }
+            }
+          },
+          {
+            "text": {
+              "data":"test adihwaudhwahid Decorations",
+              "color": "yellow",
+              "font": "Calibri",
+              "size": 12.0,
+              "decorations": {
+                "bold": true,
+                "italic": false,
+                "underlined": true,
+                "strikethrough": false
+              }
+            }
+          },
+          {
+            "text": {
+              "data":"test adihwaudhwahid Decorations",
+              "color": "green",
+              "font": "Calibri",
+              "size": 12.0,
+              "decorations": {
+                "bold": true,
+                "italic": false,
+                "underlined": true,
+                "strikethrough": true
+              }
+            }
+          },
+          {
+            "text": {
+              "data":"test adihwaudhwahid Decorations",
+              "color": "magenta",
+              "font": "Calibri",
+              "size": 12.0,
+              "decorations": {
+                "bold": false,
+                "italic": true,
+                "underlined": true,
+                "strikethrough": false
+              }
+            }
+          },
+          {
+            "text": {
+              "data":"test adihwaudhwahid Decorations",
+              "color": "cyan",
+              "font": "Calibri",
+              "size": 12.0,
+              "decorations": {
+                "bold": true,
+                "italic": false,
+                "underlined": false,
+                "strikethrough": false
+              }
+            }
+          },
+          {
+            "text": {
+              "data":"test adihwaudhwahid Decorations",
+              "color": "blue",
+              "font": "Calibri",
+              "size": 12.0,
+              "decorations": {
+                "bold": false,
+                "italic": false,
+                "underlined": true,
+                "strikethrough": true
+              }
+            }
+          },
+          {
+            "text": {
+              "data":"test adihwaudhwahid Decorations",
+              "color": "defaultColor",
+              "font": "Calibri",
+              "size": 12.0,
+              "decorations": {
+                "bold": false,
+                "italic": false,
+                "underlined": true,
+                "strikethrough": true
+              }
+            }
+          }
+        ]
+      },
+      {
+        "layout": "TITLE_AND_CONTENT",
+        "content": [
+          {
+            "title": {
+              "data":"Yes",
+              "color": "blue",
+              "font": "Calibri"
+            }
+          },
+          {
+            "image": {
+              "imageUrl":"https://cdn.slidemodel.com/wp-content/uploads/13071-01-folded-powerpoint-templates-1-640x360.jpg",
+              "height": "250",
+              "width": "250",
+              "x": "10",
+              "y": "10"
+            }
+          }
+        ]
+      },
+      {
+        "layout": "TITLE_AND_CONTENT",
+        "content": [
+          {
+            "title": {
+              "data":"This is a List",
+              "color": "black",
+              "font": "Calibri",
+              "size": 24.0,
+              "decorations": {
+                "bold": true,
+                "italic": true,
+                "underlined": false,
+                "strikethrough": false
+              }
+            }
+          },
+          {
+            "list": {
+              "content":[
+                {
+                  "text": {
+                    "data":"R",
+                    "color": "red",
+                    "font": "Calibri",
+                    "size": 16.0
+                  }
+                },
+                {
+                  "text": {
+                    "data":"G",
+                    "color": "green",
+                    "font": "Calibri",
+                    "size": 16.0
+                  }
+                },
+                {
+                  "text": {
+                    "data":"B",
+                    "color": "blue",
+                    "font": "Calibri",
+                    "size": 16.0
+                  }
+                }
+              ]
+            }
+          }
+        ]
+      }
+    ]
+  }
+}
