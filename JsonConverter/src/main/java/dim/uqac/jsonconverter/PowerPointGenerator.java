@@ -7,15 +7,27 @@ import org.apache.poi.ss.usermodel.ClientAnchor;
 import org.apache.poi.util.IOUtils;
 import org.apache.poi.xslf.usermodel.*;
 import org.apache.xmlbeans.impl.common.IOUtil;
-
 import java.awt.*;
 import java.io.Console;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.net.URL;
 import java.util.Locale;
 import java.util.Objects;
 
+
+/**
+ * This object is used to generate the power point and insert slides into it.
+ * Everything related to adding or removing items as well as managing the presentation should and will be done via this object for it is the Presentation object itself.
+ * @author Calvery
+ * @version 1.0
+ */
 public class PowerPointGenerator {
+
+    //Important constants
+    public final String FILE_OUT_PATH = "src\\main\\resources\\OutputFolder\\";
+    public final String FILE_TYPE = ".pptx";
+
     //We start by inializing our variables.
     private XMLSlideShow slideShow;
     private XSLFSlideMaster defaultMaster;
@@ -31,7 +43,10 @@ public class PowerPointGenerator {
         presentation.slides.forEach(this::addNewSlide);
     }
 
-    //Create and add new slides into the slideShow with the help of the slideObject data.
+    /**
+     * Create and add new slides into the slideShow with the help of the slideObject data.
+     * @param slideObject
+     */
     private void addNewSlide(Slide slideObject){
         int currentPlaceHolder = 0; // This field is used in order to know exactly where we situate ourselves in the content loop.
         XSLFSlideLayout layout = defaultMaster.getLayout(slideObject.getLayout());// We query the system to discover which layout the slide is going to have.
@@ -176,7 +191,22 @@ public class PowerPointGenerator {
         }
     }
 
-    //Getters and Setters
+    /**
+     * Saves the slideShow into a new Microsoft PowerPoint file with the name from the presentation.
+     * @param presentation
+     * @throws IOException
+     */
+    public void SavePowerPoint(Presentation presentation) throws IOException {
+        String fullFile = FILE_OUT_PATH+presentation.getFilename()+FILE_TYPE;
+        FileOutputStream out = new FileOutputStream(fullFile);
+        slideShow.write(out);
+        out.close();
+    }
+
+    /**
+     * Returns the slideshow object.
+     * @return XMLSlideShow
+     */
     public XMLSlideShow getSlideShow() {
         return slideShow;
     }

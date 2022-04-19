@@ -12,8 +12,7 @@ public class Main {
         pointGenerator.initializeSlideShow();
         pointGenerator.parseDataToSlides(presentation);
         //Saves the file in the resources's OutputFolder.
-        PowerPointWriter pointWriter = new PowerPointWriter();
-        pointWriter.SavePowerPoint(pointGenerator.getSlideShow(), presentation);
+        pointGenerator.SavePowerPoint(presentation);
 
     }
 }

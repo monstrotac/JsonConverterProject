@@ -5,6 +5,9 @@ import dim.uqac.jsonconverter.PowerPointGenerator;
 import dim.uqac.jsonconverter.Presentation;
 import org.junit.jupiter.api.Test;
 
+import java.io.File;
+import java.io.IOException;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 class PowerPointGeneratorTest {
@@ -25,5 +28,14 @@ class PowerPointGeneratorTest {
     void getSlideShow() {
         powerPointGenerator.initializeSlideShow();
         assertNotNull(powerPointGenerator.getSlideShow());
+    }
+
+    @Test
+    void savePowerPoint() throws IOException {
+        powerPointGenerator.initializeSlideShow();
+        Presentation p = jsonReader.generatePresentation("Tests");
+        powerPointGenerator.parseDataToSlides(p);
+        powerPointGenerator.SavePowerPoint(p);
+        assertTrue(new File(powerPointGenerator.FILE_OUT_PATH + p.getFilename() + powerPointGenerator.FILE_TYPE).isFile());
     }
 }
