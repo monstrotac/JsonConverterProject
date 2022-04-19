@@ -27,7 +27,7 @@ public class ContentList implements Content{
 
     /**
      * Getter for data
-     * @return The data of the Object, List<Content>
+     * @return The data of the Object
      */
     public java.util.List<Content> getData() {
         return data;

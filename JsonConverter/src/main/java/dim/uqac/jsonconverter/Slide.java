@@ -49,7 +49,7 @@ public class Slide {
 
     /**
      * Getter for content
-     * @return The Content of the slide, List<Content>
+     * @return The Content of the slide
      */
     public List<Content> getContent(){
         return content;
