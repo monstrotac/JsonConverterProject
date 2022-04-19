@@ -32,7 +32,7 @@ public class PowerPointGenerator {
     }
 
     //Create and add new slides into the slideShow with the help of the slideObject data.
-    public void addNewSlide(Slide slideObject){
+    private void addNewSlide(Slide slideObject){
         int currentPlaceHolder = 0; // This field is used in order to know exactly where we situate ourselves in the content loop.
         XSLFSlideLayout layout = defaultMaster.getLayout(slideObject.getLayout());// We query the system to discover which layout the slide is going to have.
         XSLFSlide newSlide = slideShow.createSlide(layout); // Create a new slide with the previously created layout here.
@@ -181,15 +181,4 @@ public class PowerPointGenerator {
         return slideShow;
     }
 
-    public void setSlideShow(XMLSlideShow slideShow) {
-        this.slideShow = slideShow;
-    }
-
-    public XSLFSlideMaster getDefaultMaster() {
-        return defaultMaster;
-    }
-
-    public void setDefaultMaster(XSLFSlideMaster defaultMaster) {
-        this.defaultMaster = defaultMaster;
-    }
 }
