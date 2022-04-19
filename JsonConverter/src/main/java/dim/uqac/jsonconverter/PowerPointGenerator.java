@@ -32,13 +32,19 @@ public class PowerPointGenerator {
     private XMLSlideShow slideShow;
     private XSLFSlideMaster defaultMaster;
 
-    //Here we initialize our SlideShow Object and assign the defaultMaster.
+
+    /**
+     * Here we initialize our SlideShow Object and assign the defaultMaster.
+     */
     public void initializeSlideShow(){
         slideShow = new XMLSlideShow();
         defaultMaster = slideShow.getSlideMasters().get(0);
     }
 
-    //This function is quite literally only used to parse all of the slides in the current presentation to then send them to addNewSlide().
+    /**
+     * This function is quite literally only used to parse all of the slides in the current presentation to then send them to addNewSlide().
+     * @param presentation
+     */
     public void parseDataToSlides(Presentation presentation){
         presentation.slides.forEach(this::addNewSlide);
     }
