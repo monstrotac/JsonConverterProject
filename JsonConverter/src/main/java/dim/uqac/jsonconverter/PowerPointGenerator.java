@@ -17,7 +17,7 @@ import java.util.Objects;
 
 
 /**
- * This object is used to generate the power point and insert slides into it.
+ * This object is used to generate the PowerPoint and insert slides into it.
  * Everything related to adding or removing items as well as managing the presentation should and will be done via this object for it is the Presentation object itself.
  * @author Calvery
  * @version 1.0
@@ -25,11 +25,23 @@ import java.util.Objects;
 public class PowerPointGenerator {
 
     //Important constants
+    /**
+     * Represents a constant to JsonConverter's OutputFolder
+     */
     public final String FILE_OUT_PATH = "src\\main\\resources\\OutputFolder\\";
+    /**
+     * The extension of the file we are saving.
+     */
     public final String FILE_TYPE = ".pptx";
 
     //We start by inializing our variables.
+    /**
+     * Our XMLSlideShow is our PowerPoint presentation.
+     */
     private XMLSlideShow slideShow;
+    /**
+     * Our defaultMaster is our view.
+     */
     private XSLFSlideMaster defaultMaster;
 
 

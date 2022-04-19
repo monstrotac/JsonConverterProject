@@ -1,11 +1,15 @@
 package dim.uqac.jsonconverter;
 
 import java.io.IOException;
+
+/**
+ * The Main Class acts as the father/mother of all classes.
+ * It handles the creation and call of methods required to conceive the presentation file.
+ */
 //GITHUB: https://github.com/monstrotac/JsonConverterProject
 public class Main {
     /**
-     * The Main program class acts as the father/mother of all classes.
-     * It handles the creation and call of methods required to conceive the presentation file.
+     * This is the Main method, it takes care of calling our program methods.
      * @param args
      * @throws IOException
      */
